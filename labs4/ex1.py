@@ -5,21 +5,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.linalg as sp
 
-x2 = np.array(range(-10, 10))
-x1 = 2 - 3/2*x2
+x1 = np.array(range(0, 20))
+x2 = 4/3 - 2/3*x1
 plt.plot(x1, x2)
-x1 = 23/5 - 4/5*x2
+x2 = 23/4 - 5/4*x1
 plt.plot(x1, x2)
 
 A = np.array([[2, 3], [5, 4]])
 a = np.array([[4], [23]])
-X = np.append(A, a, axis=1)
 
 x1, x2 = np.linalg.solve(A, a)
+
 print("x1: " + str(x1)+"\nx2: " + str(x2))
-print("Rank of this matrix is: "+str(np.linalg.matrix_rank(X)))
-print("Conditioning number of this matrix is: "+str(np.linalg.cond(X)))
-print(X)
+print("Rank of this matrix is: "+str(np.linalg.matrix_rank(A)))
+print("Conditioning number of this matrix is: "+str(np.linalg.cond(A)))
 
 p, l, u = sp.lu(A)
 print("Permutation matrix")
