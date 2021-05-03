@@ -10,10 +10,21 @@ ax = fig.add_subplot(projection='polar')
 
 color = cm.get_cmap()
 
+jetcmapx = []
+jetcmapy = []
+terraincmapx = []
+terraincmapy = []
 # smart indexing
 for x, y in zip(args[0], args[1]):
-    if -1 < x < -0.5 or 0 < x < 0.5:
-        ax.scatter(x*2*np.pi, y, c=args[0], cmap="jet")
+    if 0 < x < 1:
+        jetcmapx.append(x*np.pi)
+        jetcmapy.append(y)
     else:
-        ax.scatter(x*2*np.pi, y, c=args[0], cmap="terrain")
+        terraincmapx.append(x*np.pi)
+        terraincmapy.append(y)
+jetcmapx = np.array(jetcmapx)
+terraincmapx = np.array(terraincmapx)
+ax.scatter(jetcmapx, jetcmapy, c=jetcmapx, cmap="jet")
+ax.scatter(terraincmapx, terraincmapy, c=terraincmapx, cmap="terrain")
+
 plt.show()
