@@ -16,10 +16,10 @@ gridy = np.linspace(min(y), max(y), 100)
 
 H, xedges, yedges = np.histogram2d(x, y, bins=[gridx, gridy])
 
-ax = plt.subplot(111, title='pcolormesh: actual edges')
+ax = plt.subplot(111)
 X, Y = np.meshgrid(xedges, yedges)
 ax.pcolormesh(X, Y, H)
-plt.colorbar()
+
 plt.show()
 
 
