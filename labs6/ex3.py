@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib as mpl
+mpl.use('Qt5Agg')
 import matplotlib.pyplot as plt
 from urllib import request
 
@@ -30,19 +32,18 @@ covSlenSwdth = np.cov(sepalLength, sepalWidth)
 
 print("Covariance matrix of petal length and sepal length:")
 print(covPlenSlen)
-
 print("Covariance matrix of petal length and sepal width:")
 print(covPlenSwdth)
-
 print("Covariance matrix of sepal length and sepal width:")
 print(covSlenSwdth)
 
-print("Covariance matrix of petal length and sepal length:")
+print("Correlation matrix of petal length and sepal length:")
 print(np.corrcoef(petalLength, sepalLength))
 print("Correlation matrix of petal length and sepal width:")
 print(np.corrcoef(petalLength, sepalWidth))
 print("Correlation matrix of sepal length and sepal width:")
 print(np.corrcoef(sepalLength, sepalWidth))
+
 print("Mean of petal length:")
 print(np.mean(petalLength))
 print("Mean of sepal length:")
